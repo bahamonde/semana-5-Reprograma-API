@@ -15,7 +15,10 @@ exports.getById = (req, res) => {
 exports.getBooks = (req, res) => {
     const id = req.params.id
     const aluna = alunas.find(aluna => aluna.id == id)
-    console.log(aluna)
-    res.status(200).send('Bateu')
-    
+    // console.log(aluna.livros)
+    const livrosAluna = aluna.livros   //PARA ACESSAR OS LIVROS NOS OBJETOS ALUNAS.JSON
+    const livrosLidos = livrosAluna.filter(livro => livro.leu == "true") //PARA PEGAR SO OS LIDOS 
+    const tituloLivros = livrosAluna.map(livro => livro.titulo)  //SELECIONAR OS TITULOS
+    res.status(200).send(tituloLivros)    //RETORNAR OS TITULOS ACESSADOS
 }
+
