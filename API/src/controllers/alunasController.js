@@ -9,6 +9,13 @@ exports.get = (req, res) => {
 exports.getById = (req, res) => {
     const id = req.params.id
     console.log(id)
-    res.status(200).send(alunas.find(aluna => aluna.id == id))
+    res.status(200).send(alunas.find(aluna => aluna.id == id))    
+}
+
+exports.getBooks = (req, res) => {
+    const id = req.params.id
+    const aluna = alunas.find(aluna => aluna.id == id)
+    console.log(aluna)
+    res.status(200).send('Bateu')
     
 }
