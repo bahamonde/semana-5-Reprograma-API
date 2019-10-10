@@ -8,7 +8,9 @@ const controller = require('../controllers/alunasController')
 // })
 
 router.get('/', controller.get)  //GET NESSE CASO É O NOME DA FUNCAO DEFINIDA NO CONTROLLER (NO EXPORTS)
+router.get('/nasceuSp', controller.getSp)
 router.get('/:id', controller.getById) //QUERY PARAMS É O :ID
 router.get("/:id/books", controller.getBooks)
+
 
 module.exports = router
