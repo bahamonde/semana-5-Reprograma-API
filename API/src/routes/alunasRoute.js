@@ -11,6 +11,7 @@ router.get('/', controller.get)  //GET NESSE CASO É O NOME DA FUNCAO DEFINIDA N
 router.get('/nasceuSp', controller.getSp)
 router.get('/:id', controller.getById) //QUERY PARAMS É O :ID
 router.get("/:id/books", controller.getBooks)
+router.get("/:id/getidade", controller.getIdade)
 
 
 module.exports = router

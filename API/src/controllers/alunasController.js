@@ -43,3 +43,36 @@ exports.getSp = (req, res) => {
     res.status(200).send(meninasSp)
 }
 
+exports.getIdade = (req, res) => {
+    const idQquero = req.params.id
+    const aluna = alunas.find(item => item.id == idQquero)
+    const data = aluna.dateOfBirth
+    const separar = data.split('/')
+    const dia = separar[0]
+    const mes = separar[1]
+    const ano = separar[2]
+    const idade = calcularIdade(ano, mes, dia)
+    
+    res.status(200).send({idade})
+}
+
+console.log(this.getIdade)
+
+
+
+
+function calcularIdade(anoDeNasc, mesDeNasc, diaDeNasc) {
+      const now = new Date()
+      const anoAtual = now.getFullYear()
+      const mesAtual = now.getMonth() + 1
+      const hoje = now.getDate()
+    
+      let idade = anoAtual - anoDeNasc
+    
+      if (mesAtual < mesDeNasc || (mesAtual == mesDeNasc && hoje < diaDeNasc)) {
+        idade -= 1
+      }
+      return idade
+    }
+    
+
