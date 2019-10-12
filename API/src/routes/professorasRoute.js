@@ -9,6 +9,7 @@ const controller = require('../controllers/professorasController')
 
 router.get('/', controller.get) //QUERY PARAMS É O :ID
 router.get('/profs', controller.getProfs)
+router.get('/:id', controller.getById)
 
 
 

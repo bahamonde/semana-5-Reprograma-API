@@ -5,7 +5,7 @@ exports.get = (req, res) => {
     res.status(200).send(professoras)  
 }
 
-// -------------------------------PARA NAO MOSTRAR O CPF MO CONSOLE
+// -------------------------------PARA NAO MOSTRAR O CPF MO CONSOLE  
 
 // MANEIRA DE FAZER A FUNCAO COM FOR
 // exports.getProfs =(req, res) => {
@@ -38,6 +38,25 @@ exports.getProfs =(req, res) => {
 // })
 // res.status(200).send(semCPF)
 // }
+
+// TA ERRADO PQ DEVOLVE O ARRAY DO MAP :(
+// exports.getById = (req, res) => {
+//     const id = req.params.id;
+//     const prof = professoras.find(proff => proff.id == id)
+//     const profSemCpf = professoras.map( item => {
+//         delete item.cpf
+//         return item
+//     })
+//     res.status(200).send(profSemCpf)
+// }
+
+exports.getById = (req, res) => {
+    const id = req.params.id;
+    const prof = professoras.find(prof => prof.id == id)
+    delete prof.cpf
+    res.status(200).send(prof)
+}
+
 
 
  
